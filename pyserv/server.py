@@ -22,17 +22,17 @@ class S(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'text/html')
         self.end_headers()
         logging.info(f"{bcolors.OKGREEN_BOLD}{self.command} {self.path}{bcolors.ENDC}")
-        logging.info("Headers:\n%s\n%s" % (str(self.headers), log_more))
+        logging.info("Headers:\n%s\n%s" % (self.headers, log_more))
         return self
 
     def do_GET(self):
-        self._set_response()
+        self._set_response().wfile.write(f"{self.command} {self.path}\n".encode('utf-8'))
 
     def do_POST(self):
         content_length = int(self.headers.get("Content-Length",0))  # incoming data-size (advisory)
         post_data = self.rfile.read(content_length)
-        self._set_response(log_more="Body:%s" % post_data)
-        self.wfile.write(f"{self.command} Content-Length: {content_length}".encode('utf-8'))
+        self._set_response(log_more="Body:%s\n" % post_data)
+        self.wfile.write(f"{self.command} {self.path}\nContent-Length: {content_length}\n".encode('utf-8'))
 
     do_PUT = do_POST
 
