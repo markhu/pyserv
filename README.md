@@ -9,7 +9,7 @@ pip install pyserv
 serv [port]
 ```
 
-## Examples :
+## Examples
 
 ```bash
 serv 8080
@@ -46,11 +46,8 @@ Accept: */*
 Connection: keep-alive
 
 
-
 127.0.0.1 - - [18/Dec/2019 18:01:52] "GET / HTTP/1.1" 200 -
-
 ```
-
 
 #### POST request to the server
 
@@ -77,17 +74,15 @@ Connection: keep-alive
 Content-Length: 0
 
 
-
 Body:
 
-
 127.0.0.1 - - [18/Dec/2019 18:03:07] "POST / HTTP/1.1" 200 -
-
 ```
-If no port is mentioned the server attempts to run on port 8080. 
 
-If the given port (or the default port 8080) is already in use the server attempts to bind the next port. If the server does not find any free port after 50 attempts the server stops.
+If no port is specified, the server attempts to run on port 8080. 
+If the port is unavailable, then attempt to bind the next port.
+If we can not bind to any port after 50 attempts, then give up.
 
-Link to the PyPI project : https://pypi.org/project/pyserv/
-Motivation : https://gist.github.com/mdonkers/63e115cc0c79b4f6b8b3a6b797e485c7
-(The Project is a extention of the github gist)
+Link to the PyPI project: https://pypi.org/project/pyserv/
+Motivation: https://gist.github.com/mdonkers/63e115cc0c79b4f6b8b3a6b797e485c7
+(This project is an extension of that github gist)

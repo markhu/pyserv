@@ -1,17 +1,15 @@
-#from distutils.core import setup
-from setuptools import setup
+
+import setuptools
 import os
 import logging
-from os import path
-this_directory = path.abspath(path.dirname('__file__'))
-with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+this_directory = os.path.abspath(os.path.dirname('__file__'))
+with open(os.path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
-#from setuptools import setup, find_packages
-setup(
+setuptools.setup(
   name = 'pyserv',         # How you named your package folder (MyLib)
   packages = ['pyserv'],   # Chose the same as "name"
-  version = '1.1.0',      # 
+  version = '1.1.2',       # update the version every time you publish publically
   long_description=long_description,
   long_description_content_type='text/markdown',
 
@@ -23,14 +21,13 @@ setup(
   download_url = 'https://github.com/dheerajmpai/pyserv/',  
   keywords = ['HTTPD SERVER', 'PYTHON HTTPD', 'SERVER', 'GET', 'REQUESTS', 'HTTPD'],   # Keywords that define your package best
   install_requires=[            # I get to this in a second
-      
       ],
   classifiers=[
-    'Development Status :: 4 - Beta',      # Chose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" as the current state of your package
-    'Intended Audience :: Developers',      # Define that your audience are developers
+    'Development Status :: 4 - Beta',      # Choose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" as the current state of your package
+    'Intended Audience :: Developers',      # Define your intended audience
     'Topic :: Software Development :: Build Tools',
     'License :: OSI Approved :: MIT License',   # Again, pick a license
-    'Programming Language :: Python :: 3',      #Specify which pyhton versions that you want to support
+    'Programming Language :: Python :: 3',      # Specify which python versions you want to support
     'Programming Language :: Python :: 3.4',
     'Programming Language :: Python :: 3.5',
     'Programming Language :: Python :: 3.6',
